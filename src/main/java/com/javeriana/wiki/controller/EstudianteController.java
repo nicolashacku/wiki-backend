@@ -18,16 +18,16 @@ public class EstudianteController {
 
         switch (nombre.toLowerCase()) {
             case "jhony":
-                estudiante = new Estudiante(1, "Jhony", "Hacku", "jhony@example.com", 20, 5, "jhony.jpg", "Estudiante apasionado por la tecnología.");
+                estudiante = new Estudiante(1, "Jhony", "Martinez", "jonathanmartinez@javeriana.edu.co", 20, 6, "jhony.jpg", "Estudiante apasionado por la tecnología y ciberseguridad.");
                 break;
             case "nicolas":
-                estudiante = new Estudiante(2, "Nicolas", "Perez", "nicolas@example.com", 22, 6, "nicolas.jpg", "Amante de la programación.");
+                estudiante = new Estudiante(2, "Nicolas", "Jimenez", "jimenez_nicolase@javeriana.edu.co", 20, 6, "nicolas.png", "Amante de la programación y hacer apps web.");
                 break;
             case "xamu":
-                estudiante = new Estudiante(3, "Xamu", "Lopez", "xamu@example.com", 21, 4, "xamu.jpg", "Interesado en el diseño web.");
+                estudiante = new Estudiante(3, "Xamuel", "Perez", "xamuel_perez@example.com", 20, 6, "xamu.png", "Apasionado por la inteligencia artificial.");
                 break;
             case "juandi":
-                estudiante = new Estudiante(4, "Juandi", "Garcia", "juandi@example.com", 23, 7, "juandi.jpg", "Apasionado por la inteligencia artificial.");
+                estudiante = new Estudiante(4, "Juandi", "Funeme", "juan.funeme@javeriana.edu.co", 19, 6, "juandi.png", "Interesado en el desarrollo de videojuegos.");
                 break;
             default:
                 model.addAttribute("error", "Estudiante no encontrado");
@@ -35,6 +35,6 @@ public class EstudianteController {
         }
 
         model.addAttribute("estudiante", estudiante);
-        return "estudiante"; // Retorna una vista genérica "estudiante.html"
+        return "estudiante"; 
     }
 }
