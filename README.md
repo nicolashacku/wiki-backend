@@ -1,4 +1,4 @@
-"# Wiki Backend
+# Wiki Backend
 
 Pequeña aplicación con Spring Boot y Thymeleaf para presentar miembros de un equipo.
 
