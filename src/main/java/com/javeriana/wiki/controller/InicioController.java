@@ -11,26 +11,8 @@ public class InicioController {
         return "redirect:/grupo";
     }
 
-    // http://localhost:8080/grupo
     @GetMapping("/grupo")
     public String mostrarGrupo() {
         return "grupo";
     }
-
-    // http://localhost:8080/jhony
-    @GetMapping("/jhony")
-    public String mostrarJhony() {
-        return "jhony";
-    }
-
-    // http://localhost:8080/nicolas
-    @GetMapping("/nicolas")
-    public String mostrarNicolas() { return  "nicolas"; }
-
-
-    @GetMapping("/xamu")
-    public String mostrarXamu() { return  "xamu"; }
-
-    @GetMapping("/juandi")
-    public String mostrarJuandi() { return  "juandi"; }
 }
