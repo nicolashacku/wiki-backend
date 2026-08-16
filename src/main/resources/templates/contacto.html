@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto - Wiki del Equipo</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/stylescontacto.css}">
+</head>
+
+<body>
+
+<main class="contacto-container">
+
+    <section class="contacto-card">
+
+        <p class="etiqueta">WIKI DEL EQUIPO</p>
+
+        <h1>Contáctanos</h1>
+
+        <p class="introduccion">
+            Envíanos tus preguntas o comentarios
+            por medio de este formulario.
+        </p>
+
+        <div class="mensaje-exito"
+             th:if="${mensajeExito}"
+             th:text="${mensajeExito}">
+        </div>
+
+        <form th:action="@{/contacto}"
+              th:object="${contacto}"
+              method="post">
+
+            <div class="campo">
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
+                <input id="nombre"
+                       type="text"
+                       th:field="*{nombre}"
+                       placeholder="Escribe tu nombre"
+                       required>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="email">
+                    Correo electrónico
+                </label>
+
+                <input id="email"
+                       type="email"
+                       th:field="*{email}"
+                       placeholder="nombre@correo.com"
+                       required>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="asunto">
+                    Asunto
+                </label>
+
+                <input id="asunto"
+                       type="text"
+                       th:field="*{asunto}"
+                       placeholder="Motivo del mensaje"
+                       required>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="mensaje">
+                    Mensaje
+                </label>
+
+                <textarea id="mensaje"
+                          th:field="*{mensaje}"
+                          rows="6"
+                          placeholder="Escribe tu mensaje"
+                          required></textarea>
+
+            </div>
+
+            <button type="submit">
+                Enviar mensaje
+            </button>
+
+        </form>
+
+        <a class="volver" th:href="@{/grupo}">
+            ← Volver al inicio
+        </a>
+
+    </section>
+
+</main>
+
+</body>
+</html>
