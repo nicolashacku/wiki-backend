@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Perfil de Estudiante</h1>
-<img th:src="@{/images/{image}(image=${estudiante.imgaeUrl})}" alt="Foto de ${estudiante.nombre}" style="width:200px;height:200px;">
+<img th:src="@{/images/{image}(image=${estudiante.imageUrl})}" alt="Foto de ${estudiante.nombre}" style="width:200px;height:200px;">
 <p><strong>Nombre:</strong> <span th:text="${estudiante.nombre}"></span> <span th:text="${estudiante.apellido}"></span></p>
 <p><strong>Email:</strong> <span th:text="${estudiante.email}"></span></p>
 <p><strong>Edad:</strong> <span th:text="${estudiante.edad}"></span></p>

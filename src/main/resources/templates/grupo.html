@@ -4,50 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki - Página del Grupo</title>
-    <link rel="stylesheet" th:href="@{css/stylesgroup.css}">
+    <link rel="stylesheet" th:href="@{/css/stylesgroup.css}">
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1 >Bienvenido al Wiki del Equipo</h1>
-            <p >Conoce a los miembros de nuestro equipo</p>
-        </header>
 
-        <main>
-            <section class="miembros-grid">
-                <div class="miembro-card">
-                    <h2>Jhony</h2>
-                    <p>Descubre la descripción de Jhony</p>
-                    <img src="/images/jhony.jpg" alt="Jhony">
-                    <a href="/estudiantes/jhony" class="btn">Ver Perfil</a>
-                </div>
+<div class="container">
 
-                <div class="miembro-card">
-                    <h2>Nicolas</h2>
-                    <p>Descubre la descripción de Nicolas</p>
-                    <img src="/images/nicolas.png" alt="nicolas">
-                    <a href="/estudiantes/nicolas" class="btn">Ver Perfil</a>
-                </div>
+    <header>
+        <h1>Bienvenido al Wiki del Equipo</h1>
+        <p>Conoce a los miembros de nuestro equipo</p>
+    </header>
 
-                <div class="miembro-card">
-                    <h2>Xamu</h2>
-                    <p>Descubre la descripción de Xamu</p>
-                    <img src="/images/xamu.png" alt="xamu">
-                    <a href="/estudiantes/xamu" class="btn">Ver Perfil</a>
-                </div>
+    <main>
 
-                <div class="miembro-card">
-                    <h2>Juandi</h2>
-                    <p>Descubre la descripción de Juandi</p>
-                    <img src="/images/juandi.png" alt="juandi">
-                    <a href="/estudiantes/juandi" class="btn">Ver Perfil</a>
-                </div>
-            </section>
-        </main>
+        <section class="miembros-grid">
 
-        <footer>
-            <p>&copy; 2026 Wiki del Equipo</p>
-        </footer>
-    </div>
+            <div class="miembro-card" th:each="estudiante : ${estudiantes}">
+
+                <h2 th:text="${estudiante.nombre}"></h2>
+
+                <p th:text="${estudiante.descripcion}"></p>
+
+                <img th:src="@{/images/{image}(image=${estudiante.imageUrl})}"
+                     th:alt="${estudiante.nombre}">
+
+                <a th:href="@{/estudiantes/{nombre}(nombre=${estudiante.nombre})}"
+                   class="btn">
+                    Ver Perfil
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Wiki del Equipo</p>
+    </footer>
+
+</div>
+
 </body>
 </html>

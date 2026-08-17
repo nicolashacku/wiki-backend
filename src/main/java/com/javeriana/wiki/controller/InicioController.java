@@ -1,10 +1,19 @@
 package com.javeriana.wiki.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import com.javeriana.wiki.repository.EstudianteRepository;
 
 @Controller
 public class InicioController {
+
+    private final EstudianteRepository estudianteRepository;
+
+    public InicioController(EstudianteRepository estudianteRepository) {
+        this.estudianteRepository = estudianteRepository;
+    }
 
     @GetMapping("/")
     public String redirigirAlInicio() {
@@ -12,7 +21,13 @@ public class InicioController {
     }
 
     @GetMapping("/grupo")
-    public String mostrarGrupo() {
+    public String mostrarGrupo(Model model) {
+
+        model.addAttribute(
+                "estudiantes",
+                estudianteRepository.findAll()
+        );
+
         return "grupo";
     }
 }
