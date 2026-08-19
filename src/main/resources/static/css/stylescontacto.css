@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --teal: #1f6f63;
+    --teal-dark: #143f38;
+    --ink: #1c2733;
+    --muted: #64748b;
+    --line: #dbe3e6;
+    --paper: #ffffff;
+    --bg: #e7eef1;
+    --success-bg: #e8f7f1;
+    --success-text: #17604f;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background-color: var(--bg);
+    background-image:
+            radial-gradient(var(--line) 1px, transparent 1px);
+    background-size: 18px 18px;
+}
+
+.contacto-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.contacto-card {
+    width: min(100%, 620px);
+    padding: 2.5rem;
+    border-radius: 22px;
+    background: var(--paper);
+    box-shadow:
+            0 24px 48px -12px rgba(20, 40, 40, 0.22);
+}
+
+.etiqueta {
+    margin: 0 0 0.4rem;
+    color: var(--teal);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+}
+
+h1 {
+    margin: 0;
+    color: var(--teal-dark);
+    font-size: 2.5rem;
+}
+
+.introduccion {
+    margin: 0.7rem 0 1.8rem;
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.mensaje-exito {
+    margin-bottom: 1.4rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid #b8e3d5;
+    border-radius: 10px;
+    color: var(--success-text);
+    background: var(--success-bg);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    margin-bottom: 1.15rem;
+}
+
+label {
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 0.85rem 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font: inherit;
+    color: var(--ink);
+    background: #fbfcfc;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow:
+            0 0 0 3px rgba(31, 111, 99, 0.14);
+}
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: var(--teal);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+button:hover {
+    background: var(--teal-dark);
+}
+
+.volver {
+    display: block;
+    width: fit-content;
+    margin: 1.4rem auto 0;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.volver:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+
+    .contacto-card {
+        padding: 1.6rem;
+    }
+}
