@@ -79,11 +79,11 @@ La aplicación utiliza **PostgreSQL** como sistema gestor de base de datos. Al u
 
 Se agregó un acceso desde la vista principal para llegar a `/contacto`, donde el usuario puede enviar nombre, correo, asunto y mensaje. El formulario queda visible desde la pantalla `/grupo` con el botón **Contáctanos**.
 
-> Nota: en esta versión del proyecto el formulario se muestra y procesa en la capa web; si quieres guardar esos mensajes en PostgreSQL, debes crear una tabla y persistir los datos desde el controlador.
+Los mensajes se guardan en PostgreSQL en la tabla `contactos` mediante la entidad `Contacto` y el `ContactoRepository`.
 
 ### Consulta de mensajes de contacto en PostgreSQL
 
-Si se decide guardar los mensajes en una tabla llamada `contactos`, la consulta para revisarlos es:
+La consulta para revisarlos es:
 
 ```sql
 SELECT id, nombre, email, asunto, mensaje, created_at

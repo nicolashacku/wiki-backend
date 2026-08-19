@@ -33,69 +33,64 @@
              th:text="${mensajeExito}">
         </div>
 
+        <div class="mensaje-error"
+             th:if="${mensajeError}"
+             th:text="${mensajeError}">
+        </div>
+
         <form th:action="@{/contacto}"
-              th:object="${contacto}"
-              method="post">
+             th:object="${contacto}"
+             method="post">
 
             <div class="campo">
-
-                <label for="nombre">
-                    Nombre completo
-                </label>
-
-                <input id="nombre"
-                       type="text"
-                       th:field="*{nombre}"
-                       placeholder="Escribe tu nombre"
-                       required>
-
+               <label for="nombre">Nombre completo</label>
+               <input id="nombre"
+                      type="text"
+                      th:field="*{nombre}"
+                      placeholder="Escribe tu nombre"
+                      required
+                      oninvalid="this.setCustomValidity('Por favor, escribe tu nombre.');"
+                      oninput="this.setCustomValidity('')">
+               <span class="error-message" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></span>
             </div>
 
             <div class="campo">
-
-                <label for="email">
-                    Correo electrónico
-                </label>
-
-                <input id="email"
-                       type="email"
-                       th:field="*{email}"
-                       placeholder="nombre@correo.com"
-                       required>
-
+               <label for="email">Correo electrónico</label>
+               <input id="email"
+                      type="email"
+                      th:field="*{email}"
+                      placeholder="nombre@correo.com"
+                      required
+                      oninvalid="this.setCustomValidity('Ingresa un correo válido.');"
+                      oninput="this.setCustomValidity('')">
+               <span class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
             </div>
 
             <div class="campo">
-
-                <label for="asunto">
-                    Asunto
-                </label>
-
-                <input id="asunto"
-                       type="text"
-                       th:field="*{asunto}"
-                       placeholder="Motivo del mensaje"
-                       required>
-
+               <label for="asunto">Asunto</label>
+               <input id="asunto"
+                      type="text"
+                      th:field="*{asunto}"
+                      placeholder="Motivo del mensaje"
+                      required
+                      oninvalid="this.setCustomValidity('Por favor, escribe el asunto.');"
+                      oninput="this.setCustomValidity('')">
+               <span class="error-message" th:if="${#fields.hasErrors('asunto')}" th:errors="*{asunto}"></span>
             </div>
 
             <div class="campo">
-
-                <label for="mensaje">
-                    Mensaje
-                </label>
-
-                <textarea id="mensaje"
-                          th:field="*{mensaje}"
-                          rows="6"
-                          placeholder="Escribe tu mensaje"
-                          required></textarea>
-
+               <label for="mensaje">Mensaje</label>
+               <textarea id="mensaje"
+                         th:field="*{mensaje}"
+                         rows="6"
+                         placeholder="Escribe tu mensaje"
+                         required
+                         oninvalid="this.setCustomValidity('Escribe un mensaje antes de enviar.');"
+                         oninput="this.setCustomValidity('')"></textarea>
+               <span class="error-message" th:if="${#fields.hasErrors('mensaje')}" th:errors="*{mensaje}"></span>
             </div>
 
-            <button type="submit">
-                Enviar mensaje
-            </button>
+            <button type="submit">Enviar mensaje</button>
 
         </form>
 
