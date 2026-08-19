@@ -1,0 +1,24 @@
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: wiki-db
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: javeriana
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  wiki:
+    build: .
+    container_name: wiki-app
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+
+volumes:
+  postgres_data:
