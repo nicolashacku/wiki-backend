@@ -7,6 +7,7 @@ Proyecto de presentación del equipo — Wiki Backend. Aplicación web desarroll
 -  Motor de plantillas Thymeleaf para renderizado dinámico
 -  Página principal con la información de los miembros del equipo
 -  Páginas individuales para cada miembro
+-  Formulario de contacto accesible desde `/grupo` mediante el botón **Contáctanos**
 -  Persistencia de datos mediante JPA (Hibernate)
 -  Base de datos PostgreSQL
 -  Datos iniciales cargados automáticamente mediante `data.sql`
@@ -73,6 +74,30 @@ Ctrl + C
 ## Base de Datos
 
 La aplicación utiliza **PostgreSQL** como sistema gestor de base de datos. Al utilizar Docker Compose, PostgreSQL se ejecuta en un contenedor independiente de la instalación local del equipo.
+
+### Formulario de contacto
+
+Se agregó un acceso desde la vista principal para llegar a `/contacto`, donde el usuario puede enviar nombre, correo, asunto y mensaje. El formulario queda visible desde la pantalla `/grupo` con el botón **Contáctanos**.
+
+> Nota: en esta versión del proyecto el formulario se muestra y procesa en la capa web; si quieres guardar esos mensajes en PostgreSQL, debes crear una tabla y persistir los datos desde el controlador.
+
+### Consulta de mensajes de contacto en PostgreSQL
+
+Si se decide guardar los mensajes en una tabla llamada `contactos`, la consulta para revisarlos es:
+
+```sql
+SELECT id, nombre, email, asunto, mensaje, created_at
+FROM contactos
+ORDER BY created_at DESC;
+```
+
+Y si solo quieres filtrar por un correo concreto:
+
+```sql
+SELECT *
+FROM contactos
+WHERE email = 'usuario@correo.com';
+```
 
 ### Estructura de la Base de Datos
 
